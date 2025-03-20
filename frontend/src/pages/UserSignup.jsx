@@ -25,13 +25,14 @@ const UserSignup = () => {
     e.preventDefault()
     const newUser = {
       fullname: {
-        firstname: firstName,
+        firstname: firstName,  
         lastname: lastName
       },
       email: email,
       password: password
     }
 
+    console.log("Going to signup the user")
     const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`, newUser)
 
     if (response.status === 201) {
@@ -52,9 +53,11 @@ const UserSignup = () => {
     <div>
       <div className='p-7 h-screen flex flex-col justify-between'>
         <div>
-          <img className='w-16 mb-10' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYQy-OIkA6In0fTvVwZADPmFFibjmszu2A0g&s" alt="" />
+         <p className='text-3xl font-bold '>Urban-Rider</p>
 
-          <form onSubmit={(e) => {
+          <form 
+          className='mt-10'
+          onSubmit={(e) => {
             submitHandler(e)
           }}>
 
